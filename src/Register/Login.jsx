@@ -7,24 +7,20 @@ class Login extends Component {
         super(props);
         this.state = { username: "", password: "" }
     }
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-    componentDidMount() {
 
+    completeLogin = (event) => {
+        event.preventDefault()
         fetch('http://localhost:3000/user/login',{
             method: 'POST',
-            body: JSON.stringify({user:{username: this.state.username, password: this.state.password}}),
+            body: JSON.stringify({user:{username: this.state.username, passwordhash: this.state.password}}),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
         })
         .then((response) => response.json())
         .then((data) => { 
-            this.setState(data.sessionToken)
-            this.setState(data.ID)
+            this.setState([data.sessionToken])
+            this.setState([data.ID])
             console.log(data)
         }).catch(err => {
             alert('failed to login')
@@ -32,14 +28,19 @@ class Login extends Component {
         })
 
     }
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
     render() { 
         return ( 
         <div>
-            <Form onSubmit={this.componentDidMount}>
-                    <Label htmlFor="email">Email</Label>
+            <Form onSubmit={this.completeLogin}>
+                    <Label htmlFor="username">Username</Label>
                     <Input onChange={(e) => this.handleChange(e)} name="username" value={this.state.username}  placeholder="Username" type="text"/>
                     {/* <br /> */}
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="Password">Password</Label>
                     <Input onChange={(e) => this.handleChange(e)} name="password" value={this.state.password} placeholder="Password" type="text"/>
                     {/* <br /> */}
                     <Button type="submit">Login</Button>
