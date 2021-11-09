@@ -19,7 +19,7 @@ class Register extends Component {
         })
         .then((response) => response.json())
         .then((data) => { 
-            this.setState([data.sessionToken])
+            localStorage.setItem('token',data.sessionToken) 
             this.setState([data.ID])
             console.log(data.sessionToken)
         })

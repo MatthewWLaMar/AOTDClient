@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Button, Form, FormGroup, Label, Modal, Input, ModalBody, ModalFooter, ModalHeader} from 'reactstrap'
 
 
-class PostCreate extends Component {
+class EditPost extends Component {
     constructor(props) {
         super(props);
         this.state = { modal: false, description:"", image: "" }
@@ -14,15 +14,14 @@ class PostCreate extends Component {
         })
     }
    
-    createPost = (event) => { 
-        let token = localStorage.getItem('token')   
+    editPost = (event) => {
         event.preventDefault()
         fetch('http://localhost:3000/posting/posting', {
             method: 'POST',
-            body: JSON.stringify({posting:{description: this.state.description, image: this.state.image}}),
+            body: JSON.stringify({post:{description: this.state.description, image: this.state.image}}),
             headers: new Headers({
                 'Content-Type' : 'application/json',
-                'Authorization': token
+                'Authorization': this.props.token
             })
         })
         .then((response) => response.json())
@@ -47,11 +46,11 @@ class PostCreate extends Component {
                         <ModalBody>
                             <FormGroup>
                                 <Label htmlFor="Description"/>
-                                <Input onChange={(e) => this.handleSubmit(e)} name="description" value={this.state.description} placeholder="Description" type="text"/>
+                                <Input onChange={(e) => this.setState({ name : e.target.value})} name="Description" placeholder="Description" type="text"/>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="Image"/>
-                                <Input onChange={(e) => this.handleSubmit(e)} name="image" value={this.state.image} placeholder="Image" type="text"/>
+                                <Input onChange={(e) => this.setState({ name : e.target.value})} name="Image" placeholder="Image" type="text"/>
                             </FormGroup>
                         </ModalBody>
                         <ModalFooter>
@@ -65,4 +64,4 @@ class PostCreate extends Component {
     }
 }
  
-export default PostCreate;
+export default EditPost;
