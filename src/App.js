@@ -1,21 +1,20 @@
 import Login from './Register/Login';
 import './App.css';
 import Register from './Register/Register';
-import PostCreate from './Components/PostCreate';
-import PostIndex from './Components/PostIndex';
-import PostCards from './Components/PostCards';
+import SiteBar from './Components/SiteBar';
 
 
 function App() {
   return (
     <div className="App">
     <p> welcome to Army of the Dead! </p>
-
+      <SiteBar />
+    
       <Register />  
        <Login />
-      <PostCreate />
-      <PostIndex/>
-      <PostCards/>
+      {/* <PostCreate />
+      <PostIndex/> */}
+      
 
     </div>
   );

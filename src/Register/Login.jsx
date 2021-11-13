@@ -20,7 +20,9 @@ class Login extends Component {
         .then((response) => response.json())
         .then((data) => {
             localStorage.setItem('token',data.sessionToken) 
-            this.setState([data.ID])
+            localStorage.setItem('ID', data.ID)
+            localStorage.setItem('role', data.user.role) 
+            this.setState([data.id])
             console.log(data)
         }).catch(err => {
             alert('failed to login')

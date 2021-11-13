@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Button, Form, FormGroup, Label, Modal, Input, ModalBody, ModalFooter, ModalHeader} from 'reactstrap'
 
 
-class EditPost extends Component {
+class EditMerchPost extends Component {
     constructor(props) {
         super(props);
         this.state = { modal: false, description:"", image: "" }
@@ -30,12 +30,19 @@ class EditPost extends Component {
         await this.setState({loading: true})
     }
    
-    editPost = (posting) => {
+    editMerchPost = (posting) => {
         let token = localStorage.getItem('token')
         // event.preventDefault()
-        fetch(`http://localhost:3000/posting/update/${this.props.postingToUpdate.id}`, {
+        fetch(`http://localhost:3000/merchandise/update/${this.props.postingToUpdate.id}`, {
             method: 'PUT',
-            body: JSON.stringify({posting:{description: this.state.description, image: this.state.image}}),
+            body: JSON.stringify(
+                {merchandise:{
+                merchTitle: this.state.merchTitle, 
+                image: this.state.image,
+                description: this.state.description,
+                price: this.state.price,
+                hyperlink: this.state.hyperlink
+            }}),
             headers: new Headers({
                 'Content-Type' : 'application/json',
                 'Authorization': token
@@ -56,22 +63,35 @@ class EditPost extends Component {
     render() { 
         return ( 
             <div>
-                <Button onClick={this.toggle}>Create Post</Button>
+                <Button onClick={this.toggle}>Edit Merchandise</Button>
                 <Modal isOpen={true}>
                     <Form onSubmit={this.editPost}>
-                        <ModalHeader>Your Post</ModalHeader>
+                    <ModalHeader>Merchandise</ModalHeader>
                         <ModalBody>
                             <FormGroup>
-                                <Label htmlFor="Description"> Description</Label>
-                                <Input onChange={(e) => this.setState({description: e.target.value})} type="text"/>
+                                <Label htmlFor="Title"> Title: </Label>
+                                <Input onChange={(e) => this.setState({merchTitle: e.target.value})} type="text"/>
                             </FormGroup>
                             <FormGroup>
-                            <Label htmlFor="Image"/>
+                                <Label htmlFor="Image"/>
+                                
                                 <Input onChange={this.uploadImage} name="file" type="file"/>
                                 <br />
                                 <img src={this.image}style={{width: "300px"}} alt="pic is here"/> 
                             </FormGroup>
-                        </ModalBody>
+                            <FormGroup>
+                                <Label htmlFor="Description"> Description: </Label>
+                                <Input onChange={(e) => this.setState({description: e.target.value})} type="text"/>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="Title"> Price: </Label>
+                                <Input onChange={(e) => this.setState({price: e.target.value})} type="text"/>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="Title"> Link: </Label>
+                                <Input onChange={(e) => this.setState({hyperlink: e.target.value})} type="text"/>
+                            </FormGroup>
+                            </ModalBody>
                         <ModalFooter>
                             {this.state.loading ? <Button type="submit" onClick={this.toggle}>Submit</Button> : <></>}
                             <Button onClick={this.toggle}>Cancel</Button>
@@ -83,4 +103,4 @@ class EditPost extends Component {
     }
 }
  
-export default EditPost;
+export default EditMerchPost;

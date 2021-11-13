@@ -1,55 +1,39 @@
 import PostCards from "./PostCards";
 import PostCreate from "./PostCreate";
 import EditPost from "./EditPost";
-import React, { useEffect, Component } from 'react';
+import React, {Component } from 'react';
 import {Row, Col} from 'reactstrap'
 
 
 class PostIndex extends Component {
     constructor(props) {
         super(props);
-        this.state = { updateActive: false, postings: ([]) }
+        this.state = { updateActive: false, postings: [], postingToUpdate: {}}
     }
-
-    componentDidMount = (e) =>{
-        let token = localStorage.getItem('token')
-        
-        fetch('http://localhost:3000/posting', {
-            method: 'GET',
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': token 
-            })
-        })
-        .then((res) => res.json())
-        .then((logData) => {
-            console.log(logData)
-            this.setState({postings: logData})
-        })
-        
-    }
-
-
     editUpdatePost = (posting) => {
-        this.setState(posting)
+        this.setState({postingToUpdate: posting})
         console.log(posting)
     }
     updateOn = () => {
-        this.updateActive(true)
+        this.setState({updateActive: true})
+        console.log(this.state.updateActive)
     }
     updateOff = () => {
-        this.updateActive(false)
+        this.setState({updateActive: false})
     }
  
     render() { 
         return ( <div>
             <Row>
-                <Col> Hello
-                <PostCreate fetchPosts={this.state.fetchPosts} token={this.token}/>
+                <Col> This is the Index
+                <PostCreate fetchPosts={this.state.fetchPosts} token={this.props.token}/>
                 </Col>
                 <Col>
-                    <PostCards postings={this.state.postings} fetchPosts={this.state.fetchPosts} editUpdatePost={this.state.editUpdatePost} updateOn={this.state.updateOn} token={this.token}/>
+                <PostCards posting={this.props.posting} fetchPosts={this.props.fetchPosts} editUpdatePost={this.editUpdatePost} updateOn={this.updateOn} token={this.token}/>
                 </Col>
+                
+                {this.state.updateActive ? <EditPost postingToUpdate={this.state.postingToUpdate}  updateOff={this.updateOff} token={this.props.token} fetchPosts={this.fetchPosts}/> : <></>} 
+                
             </Row>
         </div> );
     }

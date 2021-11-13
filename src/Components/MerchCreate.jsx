@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import {Button, Form, FormGroup, Label, Modal, Input, ModalBody, ModalFooter, ModalHeader} from 'reactstrap'
 
 
-class PostCreate extends Component {
+class MerchCreate extends Component {
     constructor(props) {
         super(props);
-        this.state = { modal: false, description:"", image: "" }
+        this.state = { modal: false, merchTitle:"", image: "", description: "", price: "", hyperlink: "" }
         this.toggle = this.toggle.bind(this);
         }
     toggle() {
@@ -31,12 +31,19 @@ class PostCreate extends Component {
         await this.setState({loading: true})
     }
    
-    createPost = (event) => { 
+    createMerchPost = (event) => { 
         let token = localStorage.getItem('token')   
         // event.preventDefault()
-        fetch('http://localhost:3000/posting/posting', {
+        fetch('http://localhost:3000/merchandise/', {
             method: 'POST',
-            body: JSON.stringify({posting:{description: this.state.description, image: this.state.image}}),
+            body: JSON.stringify(
+                {merchandise:{
+                merchTitle: this.state.merchTitle, 
+                image: this.state.image,
+                description: this.state.description,
+                price: this.state.price,
+                hyperlink: this.state.hyperlink
+            }}),
             headers: new Headers({
                 'Content-Type' : 'application/json',
                 'Authorization': token
@@ -57,14 +64,15 @@ class PostCreate extends Component {
     render() { 
         return ( 
             <div>
-                <Button onClick={this.toggle}>Create Post</Button>
+                {localStorage.getItem('role').toString() === 'admin' ? <Button onClick={this.toggle}>Create Merchandise</Button> : null}
+                {/* <Button onClick={this.toggle}>Create Merchandise</Button> */}
                 <Modal isOpen={this.state.modal}>
-                    <Form onSubmit={this.createPost}>
-                        <ModalHeader>Your Post</ModalHeader>
+                    <Form onSubmit={this.createMerchPost}>
+                        <ModalHeader>Merchandise</ModalHeader>
                         <ModalBody>
                             <FormGroup>
-                                <Label htmlFor="Description"> Description</Label>
-                                <Input onChange={(e) => this.setState({description: e.target.value})} type="text"/>
+                                <Label htmlFor="Title"> Title: </Label>
+                                <Input onChange={(e) => this.setState({merchTitle: e.target.value})} type="text"/>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="Image"/>
@@ -73,6 +81,19 @@ class PostCreate extends Component {
                                 <br />
                                 <img src={this.image}style={{width: "300px"}} alt="pic is here"/> 
                             </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="Description"> Description: </Label>
+                                <Input onChange={(e) => this.setState({description: e.target.value})} type="text"/>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="Title"> Price: </Label>
+                                <Input onChange={(e) => this.setState({price: e.target.value})} type="text"/>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="Title"> Link: </Label>
+                                <Input onChange={(e) => this.setState({hyperlink: e.target.value})} type="text"/>
+                            </FormGroup>
+                           
                         </ModalBody>
                         <ModalFooter>
                         {this.state.loading ? <Button type="submit" onClick={this.toggle}>Submit</Button> : <></>}
@@ -85,4 +106,4 @@ class PostCreate extends Component {
     }
 }
  
-export default PostCreate;
+export default MerchCreate;
