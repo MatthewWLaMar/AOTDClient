@@ -29,6 +29,7 @@ class MerchIndex extends Component {
                 <MerchCreate fetchMerchPosts={this.state.fetchMerchPosts} token={this.props.token}/>
                 </Col>
                 <Col>
+                There should be cards here
                 <MerchCards merchandise={this.props.merchandise} fetchMerchPosts={this.props.fetchMerchPosts} editUpdatePost={this.editUpdatePost} updateOn={this.updateOn} token={this.token}/>
                 </Col>
                 

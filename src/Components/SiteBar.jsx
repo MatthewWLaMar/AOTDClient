@@ -52,7 +52,7 @@ class SiteBar extends React.Component {
         .then((res) => res.json())
         .then((logData) => {
             console.log(logData)
-            this.setState({posting: logData})
+            this.setState({merchandise: logData})
         })
     }
     

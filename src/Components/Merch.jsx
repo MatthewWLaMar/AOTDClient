@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MerchIndex from './PostIndex';
-import MerchCreate from './PostCreate';
+import MerchIndex from './MerchIndex';
+import MerchCreate from './MerchCreate';
 
-class Post extends Component {
+class Merch extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
@@ -15,4 +15,4 @@ class Post extends Component {
     }
 }
  
-export default Post;
+export default Merch;

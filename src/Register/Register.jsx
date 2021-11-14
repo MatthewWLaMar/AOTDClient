@@ -37,7 +37,9 @@ class Register extends Component {
     adminKey = (e) => {
         if (e === "password"){
             this.setState({role: 'admin'})
-        }else {this.setState({role: 'user'})}
+        }else{
+            this.setState({role: 'user'})
+        }
         console.log(this.state.role)
     }
     render() { 
