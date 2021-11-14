@@ -51,7 +51,7 @@ class MerchCards extends Component {
                             {merchandise.price}
                             {merchandise.hyperlink}
                             </CardText>
-                            {localStorage.getItem('role').toString() === 'admin' ? <Button color="warning" onClick={() => {this.props.updateOn(); this.props.editUpdatePost(merchandise)}}> Edit </Button> : null}
+                            {localStorage.getItem('role').toString() === 'admin' ? <Button color="warning" onClick={() => {this.props.updateOn(); this.props.editUpdateMerchPost(merchandise)}}> Edit </Button> : null}
                             {localStorage.getItem('role').toString() === 'admin' ? <Button color="warning" onClick={() => {this.deleteMerch(merchandise)}}>Delete</Button> : null}
                         </CardBody>
                     </Card>
