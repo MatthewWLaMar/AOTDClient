@@ -8,7 +8,7 @@ class Post extends Component {
         this.state = {  }
     }
     render() { 
-        return ( <div>
+        return ( <div id='postFeed'>
             <PostCreate/>
             <PostIndex posting={this.props.posting} fetchPosts={this.props.fetchPosts}/>
         </div> );

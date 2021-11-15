@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Login from '../Register/Login';
+import Register from '../Register/Register';
+import '../App.css'
 
 class Home extends Component {
     constructor(props) {
@@ -6,8 +9,12 @@ class Home extends Component {
         this.state = {  }
     }
     render() { 
-        return ( <div>
-            hello from home
+        return ( <div className='home'>
+            {/* <p className='homeText'>Join the Army of the Dead!</p> */}
+            <Register />
+            {/* <p className='homeText'>Already a member? Login!</p> */}
+            <Login />
+
         </div> );
     }
 }

@@ -30,7 +30,7 @@ class EditMerchPost extends Component {
         await this.setState({loading: true})
     }
    
-    editMerchPost = (posting) => {
+    editMerchPost = (merchandise) => {
         let token = localStorage.getItem('token')
         // event.preventDefault()
         fetch(`http://localhost:3000/merchandise/update/${this.props.postingToUpdate.id}`, {

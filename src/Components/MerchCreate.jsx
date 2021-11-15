@@ -64,7 +64,7 @@ class MerchCreate extends Component {
     render() { 
         return ( 
             <div>
-                {localStorage.getItem('role').toString() === 'admin' ? <Button onClick={this.toggle}>Create Merchandise</Button> : null}
+                {localStorage.getItem('role').toString() === 'admin' ? <Button onClick={this.toggle} className='merch-button'>Create Merchandise</Button> : null}
                 {/* <Button onClick={this.toggle}>Create Merchandise</Button> */}
                 <Modal isOpen={this.state.modal}>
                     <Form onSubmit={this.createMerchPost}>
