@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import SiteBar from "./Components/SiteBar";
+import {
+  BackGroundColor,
+  HomeBackground,
+} from "./StyledComponents/background.styled";
+import { BrowserRouter as Router} from "react-router-dom";
+import SwitchComponent from "./Components/SwitchComponenet";
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BackGroundColor>
+        <HomeBackground>
+          <SiteBar />
+          <Router>
+          <SwitchComponent />
+          </Router>
+        </HomeBackground>
+      </BackGroundColor>
     </div>
   );
 }
