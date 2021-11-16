@@ -4,6 +4,7 @@ import {
   CardBody,
   CardImg,
   CardText,
+  CardGroup,
   CardColumns,
   Button,
   CardDeck,
@@ -46,10 +47,12 @@ class PostCards extends Component {
         <div className="cardContainer">
           {posting.owner_id.toString() === localStorage.getItem("ID") &&
             this.props.updatePostFeed === "mine"}
-          <CardColumns>
-            <Card key={[index]}>
-              <CardImg top width="100%" src={posting.image} alt="IMAGE" />
+          <CardGroup className="merchContainer">
+            <Card className="merchChild" key={[index]}>
               <CardBody>
+              <CardImg style={{width: '100%'}}
+              top width="100%" src={posting.image} alt="IMAGE" />
+              
                 <CardText>{posting.description}</CardText>
                 {localStorage.getItem("ID") === posting.owner_id.toString() ? (
                   <Button
@@ -85,7 +88,7 @@ class PostCards extends Component {
                 ) : null}
               </CardBody>
             </Card>
-          </CardColumns>
+          </CardGroup>
         </div>
       );
     });

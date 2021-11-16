@@ -6,20 +6,22 @@ import {
 } from "./StyledComponents/background.styled";
 import { BrowserRouter as Router} from "react-router-dom";
 import SwitchComponent from "./Components/SwitchComponenet";
+import Footer from "./Components/Footer";
 
 
 
 function App() {
   return (
     <div className="App">
-      <BackGroundColor>
-        <HomeBackground>
+      
+        {/* <HomeBackground> */}
           <SiteBar />
           <Router>
           <SwitchComponent />
           </Router>
-        </HomeBackground>
-      </BackGroundColor>
+          <Footer />
+        {/* </HomeBackground> */}
+      
     </div>
   );
 }

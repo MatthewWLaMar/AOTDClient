@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import grlogo from '../StyledComponents/grlogo.png' 
 import '../App.css'
 
 class About extends Component {
@@ -9,8 +9,9 @@ class About extends Component {
     }
     render() { 
         return ( <div className='AboutSection'>
-            <div className="AboutText">
-                <p>
+            <img classname='logoIMG' src={grlogo} alt='logo'/>
+            <div className='aboutDiv'>
+                <p className="AboutText">
                 Welcome to Army of the Dead, a fansite for Grave Robber! Grave
             Robber, a Christian horror-punk band from Fort Wayne, Indiana, have
             been bringing their unique brand of punk to the masses since October
