@@ -44,8 +44,8 @@ toggle() {
     }
     render() { 
         return ( 
-            <div className='theLoginButton'>
-            <Button classname='loginButton'onClick={this.toggle}> Login </Button>
+            <div className='theRegisterButton'>
+            <Button classname='registerButton'onClick={this.toggle}> Login </Button>
             <Modal isOpen={this.state.modal}>
                 <Form onSubmit={this.completeLogin}>
                     <ModalHeader>Login</ModalHeader>

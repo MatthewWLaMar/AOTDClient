@@ -64,7 +64,7 @@ class MerchCreate extends Component {
     render() { 
         return ( 
             <div>
-                {localStorage.getItem('role').toString() === 'admin' ? <Button onClick={this.toggle} className='merch-button'>Create Merchandise</Button> : null}
+                {localStorage.getItem('role') === 'admin' ? <Button onClick={this.toggle} className='merch-button'>Upload Merchandise</Button> : null}
                 {/* <Button onClick={this.toggle}>Create Merchandise</Button> */}
                 <Modal isOpen={this.state.modal}>
                     <Form onSubmit={this.createMerchPost}>
@@ -82,7 +82,7 @@ class MerchCreate extends Component {
                                 <img src={this.image}style={{width: "300px"}} alt="pic is here"/> 
                             </FormGroup>
                             <FormGroup>
-                                <Label htmlFor="Description"> Description: </Label>
+                                <Label htmlFor="Description"> Description of Item: </Label>
                                 <Input onChange={(e) => this.setState({description: e.target.value})} type="text"/>
                             </FormGroup>
                             <FormGroup>

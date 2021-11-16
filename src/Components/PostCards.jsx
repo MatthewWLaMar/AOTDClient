@@ -1,6 +1,6 @@
 import React, {Component } from 'react';
-import styled from "styled-components"
 import {Card, CardBody, CardImg, CardText, CardColumns, Button, CardDeck} from 'reactstrap'
+import '../App.css'
 
 
 
@@ -26,11 +26,11 @@ class PostCards extends Component {
  
 
     postingMapper = () =>{
-        return this.props.posting.map((posting, index) => {
+        return this.props.posting.map((posting, user, index) => {
             console.log(posting.owner_id)
             
             return(
-                <div>
+                <div className='cardContainer'>
                     { (posting.owner_id.toString() === localStorage.getItem('ID') && this.props.updatePostFeed === 'mine')}
                 <CardColumns>
                     <Card key ={[index]}>
@@ -38,17 +38,18 @@ class PostCards extends Component {
                         top
                         width='100%'
                         src={posting.image}
-                        alt="Some cool Graverobber picture should be here"
+                        alt='fixed?'
                         />
                         <CardBody>
                             <CardText>
                             {posting.description}
                             </CardText>
                             {localStorage.getItem('ID') === posting.owner_id.toString() ? <Button color="warning" onClick={() => {this.props.updateOn(); this.props.editUpdatePost(posting)}}> Edit </Button> : null}
-                            
+                            {localStorage.getItem('role') === 'admin' ? <Button color="danger" onClick={() => {this.deletePosting(posting)}}>Admin Delete</Button> : null}
                             {localStorage.getItem('ID') === posting.owner_id.toString() ? <Button color="danger" onClick={() => {this.deletePosting(posting)}}>Delete</Button> : null}
-                            {localStorage.getItem('role').toString() === 'admin' ? <Button color="warning" onClick={() => {this.deletePosting(posting)}}>Admin Delete</Button> : null}
-                            <Button color="danger" onClick={() => {this.deletePosting(posting)}}>Delete</Button>
+                            
+
+                            
                         </CardBody>
                     </Card>
                 </CardColumns>
@@ -63,11 +64,11 @@ class PostCards extends Component {
     render() { 
         console.log(this.props.posting)
         return ( 
-        <div>
+            <div>
             <CardDeck>
             {this.postingMapper()}
             </CardDeck>
-        </div> );
+            </div>)
     }
 }
  

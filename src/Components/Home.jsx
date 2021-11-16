@@ -9,9 +9,13 @@ class Home extends Component {
         this.state = {  }
     }
     render() { 
-        return ( <div className='home'>
+        return ( 
+
+        <div className='home'>
+
             {/* <p className='homeText'>Join the Army of the Dead!</p> */}
             <Register />
+            
             {/* <p className='homeText'>Already a member? Login!</p> */}
             <Login />
 

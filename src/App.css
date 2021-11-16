@@ -15,6 +15,7 @@ body {
   height: 100px;
   font-family: 'Creepster', cursive;
   display: flex;
+  position: relative;
 }
 
 .NavBar .LeftSide {
@@ -69,6 +70,7 @@ body {
 }
 
 .theRegisterButton{
+  font-family:  'Creepster', cursive;
   position: relative;
   padding-bottom: 20%;
 }
@@ -92,6 +94,7 @@ body {
 
 .loginButton{
   position: relative;
+  font-family:  'Creepster', cursive;
 }
 .theLoginButton button{
   color: black;
@@ -104,16 +107,93 @@ body {
   background-color: transparent;
   border: transparent;
   font-size: 100px;
+  
 }
 .theLoginButton button:hover{
   background-color:transparent;
   color: red;
 }
 .home{
-  max-width:100%;
-  max-height:100%;
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
 }
+
+.postContainer{
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100vw;
+padding-top: 150px;
+margin-top: 10px;
+}
+
+.cardColumn{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+} 
+
+  
+
+ .main {
+  height: 100%;
+  min-height: 100%;
+}
+
+.mainDiv {
+  margin: auto;
+  width: 90%;
+  padding: 5px;
+}
+
+/* .cardGroup{
+  display: flex;
+  flex-direction: row;
+  
+} */
+
+.merchContainer{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding-top: 5%;
+  margin-left: 25%;
+  margin-right: 25%;
+  
+}
+.merchChild{
+  background-color: gainsboro;
+  color: black;
+  font-family: 'Special Elite', cursive;
+}
+
+.merchIndexDiv{
+  background-color: black;
+
+}
+
+.merchChild button{
+  background-color: transparent;
+  border: none;
+  font-weight: bolder;
+  
+}
+
+.merchContainer button:hover{
+  background-color: transparent;
+  border: none;
+  font-weight: bolder;
+  color: red;
+  
+  
+}
+
+/* .merchChild button:hover{
+  background-color: transparent;
+  color: red;
+} */

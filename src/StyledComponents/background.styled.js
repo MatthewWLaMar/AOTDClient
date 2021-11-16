@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import homePageBackground from './homePageBackground.jpg'
 import ZineStyleBackground from './ZineStyleBackground.jpg'
 
 
