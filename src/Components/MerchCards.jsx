@@ -8,6 +8,7 @@ import {
   CardDeck,
   CardTitle,
   CardGroup,
+  Col,
 } from "reactstrap";
 import "../App.css";
 
@@ -43,11 +44,13 @@ class MerchCards extends Component {
         <div>
           {merchandise.owner_id.toString() === localStorage.getItem("ID") &&
             this.props.updateMerchFeed === "mine"}
+            
           <CardGroup className="merchContainer">
+          
             <Card className="merchChild" key={[index]}>
               <CardBody>
                 <CardTitle>{merchandise.merchTitle}</CardTitle>
-                <CardImg
+                <CardImg style={{width: "100%"}}
                   top
                   width="100%"
                   src={merchandise.image}
@@ -60,7 +63,7 @@ class MerchCards extends Component {
                 <CardText>
                   {merchandise.hyperlink}
                 </CardText>
-                {localStorage.getItem("role").toString() === "admin" ? (
+                {localStorage.getItem("role") === "admin" ? (
                   <Button
                     color="warning"
                     onClick={() => {
@@ -72,7 +75,7 @@ class MerchCards extends Component {
                     Edit{" "}
                   </Button>
                 ) : null}
-                {localStorage.getItem("role").toString() === "admin" ? (
+                {localStorage.getItem("role") === "admin" ? (
                   <Button
                     color="warning"
                     onClick={() => {
@@ -85,6 +88,7 @@ class MerchCards extends Component {
               </CardBody>
             </Card>
           </CardGroup>
+          
         </div>
       );
     });

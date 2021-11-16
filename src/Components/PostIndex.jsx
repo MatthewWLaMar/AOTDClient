@@ -2,7 +2,7 @@ import PostCards from "./PostCards";
 import PostCreate from "./PostCreate";
 import EditPost from "./EditPost";
 import React, { Component } from "react";
-import { Row, Col } from "reactstrap";
+import { Row, Col, CardGroup } from "reactstrap";
 import "../App.css";
 
 class PostIndex extends Component {
@@ -44,12 +44,15 @@ class PostIndex extends Component {
 
   render() {
     return (
-      <div className="postContainer">
+      <div className="merchIndexDiv">
         <Col className="cardColum">
-          <Row className="cardRow">
+          <row className="cardRow">
             <PostCreate fetchPosts={this.fetchPosts} token={this.props.token} />
-          </Row>
-          <Row>
+          </row>
+          </Col>
+          <Col>
+          <row>
+          <CardGroup className="cardGroup">
             <PostCards
               posting={this.state.posting}
               fetchPosts={this.fetchPosts}
@@ -57,8 +60,9 @@ class PostIndex extends Component {
               updateOn={this.updateOn}
               token={this.token}
             />
-          </Row>
-
+          </CardGroup>
+          </row>
+          <row>
           {this.state.updateActive ? (
             <EditPost
               postingToUpdate={this.state.postingToUpdate}
@@ -69,6 +73,7 @@ class PostIndex extends Component {
           ) : (
             <></>
           )}
+          </row>
         </Col>
       </div>
     );

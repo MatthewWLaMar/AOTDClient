@@ -57,7 +57,8 @@ class PostCreate extends Component {
     render() { 
         return ( 
             <div>
-                <Button onClick={this.toggle}>Create Post</Button>
+                {localStorage.getItem("token") === "user" ? (<Button onClick={this.toggle}>Create Post</Button>) : null}
+                {localStorage.getItem("token") === "admin" ? (<Button onClick={this.toggle}>Create Post</Button>) : null}
                 <Modal isOpen={this.state.modal}>
                     <Form onSubmit={this.createPost}>
                         <ModalHeader>Your Post</ModalHeader>

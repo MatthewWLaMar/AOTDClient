@@ -1,7 +1,5 @@
 .App {
   text-align: center;
-  width: 100vw;
-  height: 100vw;
 }
 
 body {
@@ -13,21 +11,33 @@ body {
   background-color: white;
   width: 100%;
   height: 100px;
-  font-family: 'Creepster', cursive;
+  font-family: "Creepster", cursive;
   display: flex;
   position: relative;
+}
+
+.NavBar button{
+  background-color: transparent;
+  color: black;
+  border: transparent;
+  font-size: 160%;
+}
+
+.NavBar button:hover{
+  background-color: transparent;
+  color:red;
+  border: transparent;
 }
 
 .NavBar .LeftSide {
   flex: 50%;
   display: flex;
-  
+
   align-items: center;
 }
 
 .NavBar .LeftSide .Links {
   max-height: 50px;
-  
 }
 .NavBar .LeftSide .Links:hover {
   max-height: 50px;
@@ -39,7 +49,7 @@ body {
   color: black;
   font-size: 25px;
   margin-left: 15px;
-  justify-content:center;
+  justify-content: center;
 }
 
 .NavBar .LeftSide .Title {
@@ -54,93 +64,120 @@ body {
 }
 
 .NavBar .RightSide {
-  flex: 50%
+  flex: 50%;
 }
 
 @media only screen and (max-wdith: 850px) {
-  .NavBar .LeftSide .Links a{
+  .NavBar .LeftSide .Links a {
     font-size: 20px;
   }
 }
 
 @media only screen and (max-wdith: 750px) {
-  .NavBar .LeftSide .Links a{
+  .NavBar .LeftSide .Links a {
     font-size: 15px;
   }
 }
 
-.theRegisterButton{
-  font-family:  'Creepster', cursive;
+.theRegisterButton {
+  font-family: "Creepster", cursive;
   position: relative;
   padding-bottom: 20%;
 }
 
-.theRegisterButton button{
+.theRegisterButton button {
   color: black;
   background-color: transparent;
   border: transparent;
   font-size: 100px;
 }
-.theRegisterButton button:visited{
+.theRegisterButton button:visited {
   color: black;
   background-color: transparent;
   border: transparent;
   font-size: 100px;
 }
-.theRegisterButton button:hover{
-  background-color:transparent;
+.theRegisterButton button:hover {
+  background-color: transparent;
   color: red;
 }
 
-.loginButton{
+.loginButton {
   position: relative;
-  font-family:  'Creepster', cursive;
+  font-family: "Creepster", cursive;
 }
-.theLoginButton button{
+.theLoginButton button {
   color: black;
   background-color: transparent;
   border: transparent;
   font-size: 100px;
 }
-.theLoginButton button:visited{
+.theLoginButton button:visited {
   color: black;
   background-color: transparent;
   border: transparent;
   font-size: 100px;
-  
 }
-.theLoginButton button:hover{
-  background-color:transparent;
+.theLoginButton button:hover {
+  background-color: transparent;
   color: red;
 }
-.home{
-display: flex;
-align-items: center;
-justify-content: center;
-flex-wrap: wrap;
+.home {
+  background-image: url(./StyledComponents/ZineStyleBackground.jpg);
+  background-size: cover;
+  background-position-y: 10%;
+  min-height: 100%;
+  width: 100vw;
+  height: 100vh;
+  /* position: relative; */
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.postContainer{
-margin: auto;
+.postContainer {
+  background-image: url(./StyledComponents/HomeBackground.jpg);
+  background-size: cover;
+  background-position-y: 10%;
+  min-height: 100%;
+  width: 100vw;
+  height: 100vh;
+  /* position: relative; */
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* margin: auto;
 display: flex;
 align-items: center;
 justify-content: center;
 width: 100vw;
 padding-top: 150px;
-margin-top: 10px;
+margin-top: 10px; */
 }
 
-.cardColumn{
-  margin: auto;
+.cardColumn {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  
-} 
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding-top: 5%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
 
-  
+.cardRow {
+  background-color: gainsboro;
+  color: black;
+  font-family: "Special Elite", cursive;
+}
 
- .main {
+
+.main {
   height: 100%;
   min-height: 100%;
 }
@@ -151,45 +188,88 @@ margin-top: 10px;
   padding: 5px;
 }
 
-/* .cardGroup{
-  display: flex;
-  flex-direction: row;
-  
-} */
-
-.merchContainer{
+.cardGroup {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   padding-top: 5%;
   margin-left: 25%;
   margin-right: 25%;
-  
 }
-.merchChild{
+
+.merchContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-bottom: 5%;
+}
+
+/* .merchIndexDiv button:hover{
+  margin-top: 5%;
+  position: relative;
+  font-family: "Creepster", cursive;
+  color: white;
+  background-color: transparent;
+  border: transparent;
+}
+
+.merchIndexDiv button:hover{
+  background-color: transparent;
+  color: red;
+} */
+
+.merchIndexDiv button{
+  color: white;
+  background-color: transparent;
+  border: transparent;
+  font-size: 50px;
+  font-family:  "Creepster", cursive;
+}
+.merchIndexDiv button:hover {
+  background-color: transparent;
+  color: red;
+}
+
+.cardGroup button{
+  color: black;
+  background-color: transparent;
+  border: transparent;
+  font-size: 20px;
+  font-family:  "Creepster", cursive;
+}
+.cardGroup button:hover {
+  background-color: transparent;
+  color: red;
+}
+
+.merchChild {
   background-color: gainsboro;
   color: black;
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
 }
 
-.merchIndexDiv{
-  background-color: black;
-
+.card-body{
+    
 }
 
-.merchChild button{
+.merchIndexDiv {
+background-color: black;
+}
+
+.merchChild button {
   background-color: transparent;
   border: none;
   font-weight: bolder;
-  
 }
 
-.merchContainer button:hover{
+.merchContainer button:hover {
   background-color: transparent;
   border: none;
   font-weight: bolder;
   color: red;
-  
   
 }
 
@@ -198,7 +278,30 @@ margin-top: 10px;
   color: red;
 } */
 
-.navBarLogo{
+.navBarLogo {
   height: 200px;
   margin-top: 25%;
 }
+
+.navBarLogo:hover{
+  transform: scale(1.1); 
+}
+
+.AboutSection {
+  background-color: white;
+}
+
+.aboutDiv {
+  font-family: "Special Elite", cursive;
+  font-size: larger;
+  background-color: white;
+  border: white solid 3px;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.AboutSection img {
+  width: 20%;
+  margin-top: 5%;
+}
+

@@ -47,14 +47,23 @@ class MerchIndex extends Component {
 
   render() {
     return (
-      <div className="merchIndexDiv">
-        <Col className="cardColumn">
-          <div className="cardRow">
+      // <div className="merchIndexDiv">
+      //   <Col className="cardColumn">
+      //     <row className="cardRow">
+          <div className='merchIndexDiv' >
+        <Row>
+        <Col>
+         
             <MerchCreate
               fetchMerchPosts={this.fetchMerchPosts}
               token={this.props.token}
             />
-          </div>
+          </Col>
+          </Row>
+          <Row>
+            <Col>
+            
+          
           <CardGroup className="cardGroup">
             <MerchCards
               merchandise={this.state.merchandise}
@@ -64,7 +73,8 @@ class MerchIndex extends Component {
               token={this.token}
             />
           </CardGroup>
-
+          
+          <Row>
           {this.state.updateActive ? (
             <MerchEdit
               merchandiseToUpdate={this.state.merchandiseToUpdate}
@@ -75,7 +85,9 @@ class MerchIndex extends Component {
           ) : (
             <></>
           )}
-        </Col>
+          </Row>
+          </Col>
+        </Row>
       </div>
     );
   }
