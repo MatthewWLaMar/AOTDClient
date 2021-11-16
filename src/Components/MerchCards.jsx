@@ -32,7 +32,7 @@ class MerchCards extends Component {
         "Content-Type": "application/json",
         Authorization: token,
       }),
-    }).then(() => this.props.fetchMerch());
+    }).then(() => this.props.fetchMerchPosts());
   };
 
   merchMapper = () => {

@@ -5,7 +5,7 @@ import {Button, Form, FormGroup, Label, Modal, Input, ModalBody, ModalFooter, Mo
 class EditPost extends Component {
     constructor(props) {
         super(props);
-        this.state = { modal: false, description:"", image: "" }
+        this.state = { modal: false, description:"" }
         this.toggle = this.toggle.bind(this);
         }
     toggle() {
@@ -73,7 +73,7 @@ class EditPost extends Component {
                             </FormGroup>
                         </ModalBody>
                         <ModalFooter>
-                            {this.state.loading ? <Button type="submit" onClick={this.toggle}>Submit</Button> : <></>}
+                            <Button type="submit" onClick={this.toggle}>Submit</Button>
                             <Button onClick={this.toggle}>Cancel</Button>
                         </ModalFooter>
                     </Form>

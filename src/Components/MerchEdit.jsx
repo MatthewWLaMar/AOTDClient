@@ -5,7 +5,7 @@ import {Button, Form, FormGroup, Label, Modal, Input, ModalBody, ModalFooter, Mo
 class EditMerchPost extends Component {
     constructor(props) {
         super(props);
-        this.state = { modal: false, description:"", image: "" }
+        this.state = { modal: false, merchTitle:"", image: "", description: "", price: "", hyperlink: "" }
         this.toggle = this.toggle.bind(this);
         }
     toggle() {
@@ -33,7 +33,7 @@ class EditMerchPost extends Component {
     editMerchPost = (merchandise) => {
         let token = localStorage.getItem('token')
         // event.preventDefault()
-        fetch(`http://localhost:3000/merchandise/update/${this.props.postingToUpdate.id}`, {
+        fetch(`http://localhost:3000/merchandise/update/${this.props.merchandiseToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify(
                 {merchandise:{
@@ -65,7 +65,7 @@ class EditMerchPost extends Component {
             <div>
                 <Button onClick={this.toggle}>Edit Merchandise</Button>
                 <Modal isOpen={true}>
-                    <Form onSubmit={this.editPost}>
+                    <Form onSubmit={this.editMerchPost}>
                     <ModalHeader>Merchandise</ModalHeader>
                         <ModalBody>
                             <FormGroup>
@@ -93,7 +93,7 @@ class EditMerchPost extends Component {
                             </FormGroup>
                             </ModalBody>
                         <ModalFooter>
-                            {this.state.loading ? <Button type="submit" onClick={this.toggle}>Submit</Button> : <></>}
+                            <Button type="submit" onClick={this.toggle}>Submit</Button>
                             <Button onClick={this.toggle}>Cancel</Button>
                         </ModalFooter>
                     </Form>

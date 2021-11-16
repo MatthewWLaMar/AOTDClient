@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, BrowserRouter } from "react-router-dom";
 import '../App.css'
-
+import GRAVEROBBERLOGOVector from '../StyledComponents/GRAVEROBBERLOGOVector.png'
 class SiteBar extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +25,7 @@ class SiteBar extends React.Component {
       <div className="NavBar">
         <div className="LeftSide">
           <BrowserRouter>
-            <Link className="Title" to='/About'>Grave Robber!</Link>
+            <Link className="Title" to='/About'><img className="navBarLogo" src={GRAVEROBBERLOGOVector} alt='eatmybutt'></img></Link>
             <Link className="Links" to="/Home">Home!</Link>
             <Link className="Links" to="/PostIndex">Posts!</Link>      
             <Link className="Links" to="/MerchIndex">Merch Table!</Link>
