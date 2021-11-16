@@ -3,6 +3,7 @@ import MerchCreate from "./MerchCreate";
 import MerchEdit from "./MerchEdit";
 import React, { Component } from "react";
 import { Row, Col, CardGroup } from "reactstrap";
+import APIURL from "../helpers/enviroment";
 
 class MerchIndex extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class MerchIndex extends Component {
 
   fetchMerchPosts = () => {
     let token = localStorage.getItem("token");
-    fetch("http://localhost:3000/merchandise/", {
+    fetch(`${APIURL}/merchandise/`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",

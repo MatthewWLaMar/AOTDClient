@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button, Form, FormGroup, Label, Modal, Input, ModalBody, ModalFooter, ModalHeader} from 'reactstrap'
-
+import APIURL from '../helpers/enviroment';
 
 class EditPost extends Component {
     constructor(props) {
@@ -33,7 +33,7 @@ class EditPost extends Component {
     editPost = (posting) => {
         let token = localStorage.getItem('token')
         // event.preventDefault()
-        fetch(`http://localhost:3000/posting/update/${this.props.postingToUpdate.id}`, {
+        fetch(`${APIURL}/posting/update/${this.props.postingToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({posting:{description: this.state.description, image: this.state.image}}),
             headers: new Headers({

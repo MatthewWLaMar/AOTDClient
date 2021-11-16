@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Button, Form, FormGroup, Label, Modal, Input, ModalBody, ModalFooter, ModalHeader} from 'reactstrap'
 // import styled from "styled-components"
 import '../App.css'
-
+import APIURL from '../helpers/enviroment';
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +17,7 @@ toggle() {
 
     completeLogin = (event) => {
         event.preventDefault()
-        fetch('http://localhost:3000/user/login',{
+        fetch(`${APIURL}/user/login`,{
             method: 'POST',
             body: JSON.stringify({user:{username: this.state.username, passwordhash: this.state.password}}),
             headers: new Headers({

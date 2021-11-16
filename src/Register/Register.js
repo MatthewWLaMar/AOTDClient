@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Button, Form, FormGroup, Label, Modal, Input, ModalBody, ModalFooter, ModalHeader} from 'reactstrap'
 // import styled from "styled-components"
 import '../App.css'
-
+import APIURL from '../helpers/enviroment';
 class Register extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +17,7 @@ class Register extends Component {
     
     completeRegister = (event) => {
         event.preventDefault()
-        fetch('http://localhost:3000/user/create',{
+        fetch(`${APIURL}/user/create`,{
             method: 'POST',
             body: JSON.stringify({user:{username: this.state.username, email: this.state.email, passwordhash: this.state.password, role: this.state.role}}),
             headers: new Headers({

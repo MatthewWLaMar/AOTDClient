@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button, Form, FormGroup, Label, Modal, Input, ModalBody, ModalFooter, ModalHeader} from 'reactstrap'
-
+import APIURL from '../helpers/enviroment';
 
 class PostCreate extends Component {
     constructor(props) {
@@ -34,7 +34,7 @@ class PostCreate extends Component {
     createPost = (event) => { 
         let token = localStorage.getItem('token')   
         // event.preventDefault()
-        fetch('http://localhost:3000/posting/posting', {
+        fetch(`${APIURL}/posting/posting`, {
             method: 'POST',
             body: JSON.stringify({posting:{description: this.state.description, image: this.state.image}}),
             headers: new Headers({

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button, Form, FormGroup, Label, Modal, Input, ModalBody, ModalFooter, ModalHeader} from 'reactstrap'
-
+import APIURL from '../helpers/enviroment';
 
 class MerchCreate extends Component {
     constructor(props) {
@@ -34,7 +34,7 @@ class MerchCreate extends Component {
     createMerchPost = (event) => { 
         let token = localStorage.getItem('token')   
         // event.preventDefault()
-        fetch('http://localhost:3000/merchandise/', {
+        fetch(`${APIURL}/merchandise/`, {
             method: 'POST',
             body: JSON.stringify(
                 {merchandise:{

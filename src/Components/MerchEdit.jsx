@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button, Form, FormGroup, Label, Modal, Input, ModalBody, ModalFooter, ModalHeader} from 'reactstrap'
-
+import APIURL from '../helpers/enviroment';
 
 class EditMerchPost extends Component {
     constructor(props) {
@@ -33,7 +33,7 @@ class EditMerchPost extends Component {
     editMerchPost = (merchandise) => {
         let token = localStorage.getItem('token')
         // event.preventDefault()
-        fetch(`http://localhost:3000/merchandise/update/${this.props.merchandiseToUpdate.id}`, {
+        fetch(`${APIURL}/merchandise/update/${this.props.merchandiseToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify(
                 {merchandise:{

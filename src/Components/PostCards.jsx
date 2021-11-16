@@ -10,6 +10,7 @@ import {
   CardDeck,
 } from "reactstrap";
 import "../App.css";
+import APIURL from '../helpers/enviroment';
 
 class PostCards extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class PostCards extends Component {
 
   adminDeletePosting = (posting) => {
     let token = localStorage.getItem("token");
-    fetch(`http://localhost:3000/posting/admin/${posting.id}`, {
+    fetch(`${APIURL}/posting/admin/${posting.id}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",

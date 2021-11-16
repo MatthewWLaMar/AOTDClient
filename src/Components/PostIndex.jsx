@@ -4,6 +4,7 @@ import EditPost from "./EditPost";
 import React, { Component } from "react";
 import { Row, Col, CardGroup } from "reactstrap";
 import "../App.css";
+import APIURL from '../helpers/enviroment';
 
 class PostIndex extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class PostIndex extends Component {
 
   fetchPosts = () => {
     let token = localStorage.getItem("token");
-    fetch("http://localhost:3000/posting", {
+    fetch(`${APIURL}/posting`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
